@@ -29,7 +29,7 @@ if __name__ == "__main__":
         print(f"Found JSON-LD Schemas: {len(page_data.json_ld)}")
         
         # Uncomment this to see the full JSON
-        # print("\n--- Full JSON Output ---")
-        # print(page_data.model_dump_json(indent=2))
+        print("\n--- Full JSON Output ---")
+        print(page_data.model_dump_json(indent=2))
 
     print("\n--- Testing Complete ---")
