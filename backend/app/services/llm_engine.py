@@ -39,12 +39,11 @@ def _create_compact_summary(page_data: PageData, features: ExtractedFeatures) ->
         "title": page_data.title,
         "meta_description": page_data.meta_description,
         "h1": page_data.h1,
-        "top_headings": features.keyword_densities.keys(), # Use top keywords as proxy
+        "top_headings": list(features.keyword_densities.keys()), # <-- THE FIX IS HERE
         "word_count": features.word_count,
         "schema_types": features.schema_types_present,
-        "top_keywords": list(features.keyword_densities.items())[:20] # [keyword, density]
+        "top_keywords": list(features.keyword_densities.items())[:20] 
     }
-
 def _build_system_prompt() -> str:
     """Defines the role and expected JSON output format for the LLM."""
     
