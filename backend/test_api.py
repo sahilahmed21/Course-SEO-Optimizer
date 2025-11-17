@@ -6,9 +6,8 @@ import json
 BASE_URL = "http://127.0.0.1:8000"
 
 TEST_DATA = {
-    "target_url": "https://www.mygreatcourse.com/msc-data-analytics", # A dummy URL
-    "query": "MSc Data Science course UK"
-}
+    "target_url": "https://www.uwl.ac.uk/course/undergraduate/cyber-security?start=1650&option=33",
+    "query": "BSc (Hons) Cyber Security UK"}
 
 def run_test():
     # --- 1. Start the Job ---
@@ -17,7 +16,7 @@ def run_test():
     try:
         response = requests.post(f"{BASE_URL}/analyze", json=TEST_DATA)
         response.raise_for_status() # Raise error for bad status
-        
+         
         job_data = response.json()
         job_id = job_data.get("job_id")
         

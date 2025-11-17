@@ -57,7 +57,7 @@ def run_analysis_workflow(job_id: str, query: str, target_url: str):
 
         # --- Phase 1: Search ---
         logger.info(f"Job {job_id}: Starting Phase 1 (Search)")
-        search_results = search_service.get_search_results(query, num_results=3)
+        search_results = search_service.get_search_results(query, num_results=7)
         if not search_results.get("results"):
             raise Exception("Phase 1 failed: No search results found.")
         
