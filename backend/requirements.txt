@@ -1,8 +1,12 @@
+fastapi[all]
+uvicorn
 google-api-python-client
 python-dotenv
 requests
 beautifulsoup4
 lxml
 pydantic
+playwright
 nltk
 scikit-learn
+openai

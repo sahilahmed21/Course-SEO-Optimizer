@@ -28,16 +28,18 @@ app = FastAPI(
 )
 
 # --- CORS Middleware ---
-# This allows our React frontend (running on a different port)
-# to communicate with this backend.
+
+# Define the *only* URLs that are allowed to call this API
+production_origin = "https://uwlcourse.demo.ryzeai.ai" # Your deployed frontend
+development_origin = "http://localhost:5173"           # Your local dev frontend
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For demo, allow all. In production, restrict.
+    allow_origins=[production_origin, development_origin], # Only allow these
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST"], # Only allow these methods
     allow_headers=["*"],
 )
-
 # --- Job Store ---
 # A simple in-memory dictionary to store job status.
 # For a real app, you'd use a database (Redis, SQL, etc.)
